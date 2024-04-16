@@ -48,15 +48,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   [X] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [X] Commit: `Create Subscriber model struct.`
+    -   [X] Commit: `Create Notification model struct.`
+    -   [X] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   [X] Commit: `Implement add function in Subscriber repository.`
+    -   [X] Commit: `Implement list_all function in Subscriber repository.`
+    -   [X] Commit: `Implement delete function in Subscriber repository.`
+    -   [X] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -77,6 +77,18 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. Explain based on your understanding of Observer design patterns, do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough?
+
+Pada Observer Pattern, penggunaan interface atau trait bergantung pada keragaman perilaku yang dimiliki oleh objek observer. Jika observer terdiri dari berbagai tipe atau jenis yang memerlukan penanganan yang berbeda, maka penggunaan interface atau trait menjadi relevan. Namun, dalam konteks BambangShop, dimana semua subscriber dianggap memiliki perilaku yang sama, penggunaan interface atau trait tidak diperlukan. Sebuah single model struct sudah cukup untuk menyimpan data observer dan perilaku yang diperlukan.
+
+2. id in Program and url in Subscriber is intended to be unique. Explain based on your understanding, is using Vec (list) sufficient or using DashMap (map/dictionary) like we currently use is necessary for this case?
+
+Dalam kasus di mana id dan URL harus unik, DashMap lebih cocok untuk digunakan dibandingkan Vec. Dengan DashMap, kita dapat menggunakan id produk atau URL pelanggan sebagai key karena keduanya dijamin unik, mengurangi kebutuhan untuk dua Vec terpisah. Operasi pengaksesan data dengan key pada DashMap juga lebih efisien, mempercepat proses secara keseluruhan dan memudahkan pemetaan langsung antara produk dan pelanggan. 
+
+3. When programming using Rust, we are enforced by rigorous compiler constraints to make a thread-safe program. In the case of the List of Subscribers (SUBSCRIBERS) static variable, we used the DashMap external library for thread safe HashMap. Explain based on your understanding of design patterns, do we still need DashMap or we can implement Singleton pattern instead?
+
+Dalam pemrograman Rust, meskipun compiler memberlakukan aturan yang ketat terhadap thread-safety, penggunaan DashMap masih tetap diperlukan untuk memastikan keamanan akses dan modifikasi data dalam lingkungan multithreading. Implementasi Singleton pattern dapat memastikan hanya ada satu instance SUBSCRIBER, namun kombinasi dengan DashMap diperlukan untuk menjaga keamanan dan konsistensi data di antara thread yang berbeda.
+
 
 #### Reflection Publisher-2
 
