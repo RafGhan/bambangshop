@@ -58,12 +58,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [X] Commit: `Implement delete function in Subscriber repository.`
     -   [X] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [X] Commit: `Create Notification service struct skeleton.`
+    -   [X] Commit: `Implement subscribe function in Notification service.`
+    -   [X] Commit: `Implement subscribe function in Notification controller.`
+    -   [X] Commit: `Implement unsubscribe function in Notification service.`
+    -   [X] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [X] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -91,5 +91,18 @@ Dalam pemrograman Rust, meskipun compiler memberlakukan aturan yang ketat terhad
 
 
 #### Reflection Publisher-2
+
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Memisahkan Service dan Repository dari Model mendukung prinsip-prinsip SOLID, khususnya Prinsip Single Responsibility (SRP). Dengan Service bertanggung jawab atas logika aplikasi dan Repository mengelola akses data, kode menjadi lebih modular dan mudah dikembangkan serta dipelihara. Penyekatan fungsionalitas ini ke dalam file terpisah memungkinkan setiap bagian kode mudah dibaca dan diedit, menghindari kompleksitas yang berlebihan dalam satu file.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Jika kita tidak melakukan pemisahan antara Service dan Repository dari Model, kompleksitas kode akan meningkat karena business logic dan akses data bercampur, sulit dipahami, sulit diuji, dan sulit dipelihara. Ketergantungan antar bagian kode juga akan meningkat, menyulitkan perubahan tanpa memperhatikan dampaknya pada bagian lain. 
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Sebelumnya, saya sudah pernah menggunakan Postman pada beberapa project di mata kuliah Pemrograman Berbasis Platform (PBP) untuk mengirimkan http request dengan suatu data pada body atau parameter ke suatu endpoint. Postman sangat membantu memastikan bahwa endpoint mampu menerima dan merespons data dengan benar, memberikan kemudahan dalam pengujian fungsionalitas keseluruhan aplikasi.
+
 
 #### Reflection Publisher-3
